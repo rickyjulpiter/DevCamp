@@ -91,7 +91,7 @@ function VerifikasiData(props) {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onClick={() => props.history.push('/paket')}
+                        onClick={() => props.history.push('/dashboard')}
                     >
                         adsjijadsi                    </Button>
                 </Container>
