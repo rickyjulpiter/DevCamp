@@ -42,23 +42,19 @@ function App(props) {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const dataGold = {
-      "email": "rui@yahoo.com",
-      "password": "123"
-    }
     const data = {
-      "email": "ricky",
-      "password": "123"
+      "email": event.target.email.value,
+      "password": event.target.password.value
     }
     try {
       const res = await axios.post("http://172.32.1.247:4000/api/v1/auth/login", data);
-      //set cookie
-      setCookie('token', res.data.data.token, { path: '/' });
-      console.log(cookies.token);
-      props.history.push('/paket');
-
+      if(res.data.success){
+        //set cookie
+        setCookie('token', res.data.data.token, { path: '/' });
+        props.history.push('/paket');
+      }
     } catch (error) {
-      throw new Error(error.message)
+      console.log(error);
     }
   }
   const classes = useStyles();
