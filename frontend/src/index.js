@@ -6,6 +6,7 @@ import App from './App';
 import Paket from './Paket';
 import PaketInfo from './PaketInfo';
 import VerifikasiData from './VerifikasiData';
+import Dashboard from './Dashboard';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -16,6 +17,7 @@ const routing = (
             <Route exact path="/paket" component={Paket} />
             <Route exact path="/paket/:slug" component={PaketInfo} />
             <Route exact path="/order/gold" component={VerifikasiData} />
+            <Route exact path="/dashboard" component={Dashboard} />
             {/* <Route path="/contact" component={Contact} /> */}
         </div>
     </Router>
