@@ -5,7 +5,16 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Button } from '@material-ui/core';
+import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Button, Box } from '@material-ui/core';
+
+const image = {
+    url: '/static/images/grid-list/breakfast.jpg',
+    title: 'GOLD',
+    color: '#DAA520',
+    description: 'Asuransi Kesehatan, Angsuran Kematian, Bunga Simpanan TERBESAR 2%',
+    width: '50%',
+    slug: 'gold',
+}
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -17,7 +26,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(8),
         display: 'flex',
         // flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
     },
     avatar: {
@@ -30,6 +39,11 @@ const useStyles = makeStyles(theme => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+    },
+    imageTitle: {
+        position: 'relative',
+        fontSize: '2rem',
+        fontWeight: 800,
     },
 }));
 
@@ -44,45 +58,33 @@ function PaketInfo(props) {
                     <CssBaseline />
                     <div className={classes.paper}>
                         <div className={classes.titles}>
-                            <Typography component="h1" variant="h5">
-                                Paket {slug}
-                            </Typography>
-                            <Typography>
-                                Ini dia info untuk paket {slug}.
+                            <Typography
+                                component="span"
+                                variant="subtitle1"
+                                className={classes.imageTitle}
+                                fontWeight="fontWeightBold"
+                            >
+                                Paket <a style={{ color: image.color }}>{image.title}</a>
                             </Typography>
                         </div>
-                        <img width="15%" src={Mascot} alt="Mascot" />
                     </div>
-                    <ExpansionPanel defaultExpanded>
-                        <ExpansionPanelSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography className={classes.heading}>Kewajiban</Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails>
-                            <Typography>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget.
-                            </Typography>
-                        </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                    <ExpansionPanel defaultExpanded>
-                        <ExpansionPanelSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel2a-content"
-                            id="panel2a-header"
-                        >
-                            <Typography className={classes.heading}>Hak</Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails>
-                            <Typography>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget.
-                            </Typography>
-                        </ExpansionPanelDetails>
-                    </ExpansionPanel>
+                    <Typography component="div">
+                        <Box fontWeight="fontWeightLight" m={1}>
+                            Angsuran Kesehatan
+                        </Box>
+                        <Box fontWeight="fontWeightRegular" m={1}>
+                            Angsuran Kematian
+                        </Box>
+                        <Box fontWeight="fontWeightMedium" m={1}>
+                            Kode Voucher GOKIL
+                        </Box>
+                        <Box fontWeight={500} m={1}>
+                            Bunga Simpanan Terbesar 2%
+                        </Box>
+                        <Box fontWeight="fontWeightBold" m={1}>
+                            Bunga Pinjaman 5%
+                        </Box>
+                    </Typography>
                     <Button
                         type="submit"
                         fullWidth
