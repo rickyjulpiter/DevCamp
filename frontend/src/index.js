@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import Paket from './Paket';
 import PaketInfo from './PaketInfo';
+import VerifikasiData from './VerifikasiData';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -14,6 +15,7 @@ const routing = (
             <Route exact path="/" component={App} />
             <Route exact path="/paket" component={Paket} />
             <Route exact path="/paket/:slug" component={PaketInfo} />
+            <Route exact path="/order/gold" component={VerifikasiData} />
             {/* <Route path="/contact" component={Contact} /> */}
         </div>
     </Router>

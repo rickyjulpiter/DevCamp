@@ -42,12 +42,12 @@ const useStyles = makeStyles(theme => ({
     },
     imageTitle: {
         position: 'relative',
-        fontSize: '2rem',
+        fontSize: '1.5rem',
         fontWeight: 800,
     },
 }));
 
-function PaketInfo(props) {
+function VerifikasiData(props) {
     const classes = useStyles();
     const slug = props.match.params.slug;
 
@@ -91,14 +91,13 @@ function PaketInfo(props) {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onClick={() => props.history.push('/order/gold')}
+                        onClick={() => props.history.push('/paket')}
                     >
-                        Saya mau paket ini
-                    </Button>
+                        adsjijadsi                    </Button>
                 </Container>
             </header>
         </div >
     );
 }
 
-export default PaketInfo;
+export default VerifikasiData;
