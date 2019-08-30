@@ -3,9 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import Mascot from './assets/mascot.png';
-import Paper from '@material-ui/core/Paper';
 import { Button, Card, CardContent, CardActions, Box } from '@material-ui/core';
 
 const simpanan = [
@@ -39,8 +37,8 @@ const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(4),
         display: 'flex',
-        // flexDirection: 'column',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
+        // justifyContent: 'space-between',
         alignItems: 'center',
     },
     form: {
@@ -134,60 +132,9 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function Paket(props) {
+function Pinjaman(props) {
     const classes = useStyles();
     var dashboardContent;
-    const status = "pembayaran";
-
-    if (status === "verifikasi") {
-        dashboardContent = (
-            <Typography style={{ paddingBottom: '1rem' }}>
-                Saat ini aku kamu sedang dalam proses verifikasi oleh tim TokoKoperasi. Tunggu ya, ga lama kok!
-            </Typography>
-        )
-    } else if (status === "pembayaran") {
-        dashboardContent = (
-            <Typography style={{ paddingBottom: '1rem' }}>
-                Tes
-            </Typography>
-        )
-    } else {
-        dashboardContent = (
-            <div>
-                <Typography style={{ paddingBottom: '1rem' }}>
-                    Selamat akun anda telah di setujui!
-                    Saatnya lakukan transkasi sesudai keinginan kamu
-                </Typography>
-                <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/simpanan')}>
-                    Simpanan
-                </Button>
-                <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
-                    Pinjaman
-                </Button>
-                <Card className={classes.card}>
-                    <CardContent>
-                        <Typography variant="h5" component="h2">
-                            Daftar Kekayaan
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                            {/* Daftar Kekayaan Saat Ini */}
-                        </Typography>
-                        {simpanan.map(kekayaan => (
-                            <Typography variant="body2" component="p" className={classes.arrange}>
-                                <div>{kekayaan.name}</div>
-                                <div>{kekayaan.price}</div>
-                            </Typography>
-                        ))}
-                        <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
-                            <Box fontWeight={800}>Kekayaan Total</Box>
-                            <Box fontWeight={800}>Rp. 39.000.000,00</Box>
-                        </Typography>
-                    </CardContent>
-                </Card>
-
-            </div>
-        )
-    }
 
     return (
         <div className="App">
@@ -196,20 +143,41 @@ function Paket(props) {
                     <CssBaseline />
                     <div className={classes.paper} style={{ paddingBottom: '0.5rem' }}>
                         <div className={classes.titles}>
-                            <Typography component="h1" variant="h5" style={{ color: 'green', fontWeight: 800 }}>
-                                Selamat Datang!
-                            </Typography>
-                            <Typography>
-                                Satria Sipayung
+                            <Typography component="h1" variant="h5" style={{ fontWeight: 800 }}>
+                                Mau nabung apa?
                             </Typography>
                         </div>
-                        <img width="15%" src={Mascot} alt="Mascot" />
                     </div>
-                    {dashboardContent}
+                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
+                        Pinjaman Wajib
+                    </Button>
+                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
+                        Pinjaman Sukarela
+                    </Button>
+                    <Card className={classes.card}>
+                        <CardContent>
+                            <Typography variant="h5" component="h2">
+                                Daftar Simpanan
+                        </Typography>
+                            <Typography className={classes.pos} color="textSecondary">
+                                {/* Daftar Kekayaan Saat Ini */}
+                            </Typography>
+                            {simpanan.map(kekayaan => (
+                                <Typography variant="body2" component="p" className={classes.arrange}>
+                                    <div>{kekayaan.name}</div>
+                                    <div>{kekayaan.price}</div>
+                                </Typography>
+                            ))}
+                            <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
+                                <Box fontWeight={800}>Kekayaan Total</Box>
+                                <Box fontWeight={800}>Rp. 39.000.000,00</Box>
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 </Container>
             </header>
         </div >
     );
 }
 
-export default Paket;
+export default Pinjaman;
