@@ -14,7 +14,19 @@ const getAllPinjamanByUid = (userId)=>{
     return db.query(sql,[userId]);
 }
 
+const getPinjamanByid = (pid) => {
+    const sql= "SELECT * FROM pinjaman WHERE pinjaman_id = $1";
+    return db.query(sql,[pid]);
+}
+
+const getLatestPinjaman = (userId) => {
+    const sql= "SELECT coalesce(max(pinjaman_id),0) as id FROM pinjaman WHERE user_id = $1";
+    return db.query(sql,[userId]);
+}
+
 module.exports = {
     insertPinjaman: insertPinjaman,
-    getAllPinjamanByUid : getAllPinjamanByUid
+    getAllPinjamanByUid : getAllPinjamanByUid,
+    getLatestPinjaman: getLatestPinjaman,
+    getPinjamanByid: getPinjamanByid
 }

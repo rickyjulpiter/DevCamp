@@ -8,6 +8,14 @@ const getHistoryCicilanByPid = () => {
     return db.query(sql);
 }
 
+const getLatestCicilanByPid = (pid) => {
+    console.log("pid:"+ pid);
+    const sql= "SELECT coalesce(max(cicilan_ke),0) as id FROM cicilan WHERE pinjaman_id = $1";
+    return db.query(sql,[pid]);
+}
+
+
 module.exports = {
-    getHistoryCicilanByPid: getHistoryCicilanByPid
+    getHistoryCicilanByPid: getHistoryCicilanByPid,
+    getLatestCicilanByPid: getLatestCicilanByPid
 }
