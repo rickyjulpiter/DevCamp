@@ -70,19 +70,19 @@ function PaketInfo(props) {
                     </div>
                     <Typography component="div">
                         <Box fontWeight="fontWeightLight" m={1}>
-                            Angsuran Kesehatan
+                        {'\u2022'} Angsuran Kesehatan
                         </Box>
-                        <Box fontWeight="fontWeightRegular" m={1}>
-                            Angsuran Kematian
+                        <Box fontWeight="fontWeightLight" m={1}>
+                        {'\u2022'} Angsuran Kematian
                         </Box>
-                        <Box fontWeight="fontWeightMedium" m={1}>
-                            Kode Voucher GOKIL
+                        <Box fontWeight="fontWeightLight" m={1}>
+                        {'\u2022'} Kode Voucher <b>GOKIL</b>
                         </Box>
-                        <Box fontWeight={500} m={1}>
-                            Bunga Simpanan Terbesar 2%
+                        <Box fontWeight="fontWeightLight" m={1}>
+                        {'\u2022'} Bunga Simpanan <b>Terbesar</b> 2%
                         </Box>
-                        <Box fontWeight="fontWeightBold" m={1}>
-                            Bunga Pinjaman 5%
+                        <Box fontWeight="fontWeightLight" m={1}>
+                        {'\u2022'} Bunga Pinjaman 5%
                         </Box>
                     </Typography>
                     <Button

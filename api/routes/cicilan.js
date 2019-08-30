@@ -5,8 +5,7 @@ const { getHistoryCicilanByPid
 const { apiTokenAuth } = require('../middlewares/mw_auth');
 
 router.post('/detail', [apiTokenAuth], async (req, res) => {
-    const body = req.body;
-    const result = await getHistoryCicilanByPid(body.pid);
+    const result = await getHistoryCicilanByPid();
     return res
         .status(200)
         .send({

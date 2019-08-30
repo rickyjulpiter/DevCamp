@@ -64,10 +64,10 @@ function Pinjaman(props) {
                             </Typography>
                         </div>
                     </div>
-                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/simulasi/pinjaman')}>
+                    <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push('/simulasi/pinjaman')}>
                         Ajukan Pinjaman
                     </Button>
-                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
+                    <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
                         Pembayaran Cicilan
                     </Button>
                     <RiwayatCicilan />

@@ -7,9 +7,9 @@ const { getSumSimpananSukarela,
 const { apiTokenAuth } = require('../middlewares/mw_auth');
 
 router.get('/harta', [apiTokenAuth], async (req, res) => {
-    const sukarela = await getSumSimpananSukarela();
-    const wajib = await getSumSimpananWajib();
-    const shu = await getSumSimpananShu();
+    const sukarela = await getSumSimpananSukarela(req.uid);
+    const wajib = await getSumSimpananWajib(req.uid);
+    const shu = await getSumSimpananShu(req.uid);
     var pokok = 0;
     if(req.type == "GOLD") pokok = 100000;
     else if(req.type == "SILVER") pokok = 75000;

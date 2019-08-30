@@ -181,10 +181,10 @@ function Paket(props) {
                     Selamat akun anda telah di setujui!
                     Saatnya lakukan transkasi sesudai keinginan kamu
                 </Typography>
-                <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/simpanan')}>
+                <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push('/dashboard/simpanan')}>
                     Simpanan
                 </Button>
-                <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
+                <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
                     Pinjaman
                 </Button>
                 <Kekayaan />

@@ -100,8 +100,7 @@ function VerifikasiData(props) {
                                     component="span"
                                     variant="subtitle1"
                                 >
-                                    Kamu harus upload foto KTP dan diri kamu agar
-                                    kami bisa verifikasi data kamu
+                                    Kamu harus upload foto KTP dan diri kamu agar kami bisa verifikasi data kamu
                                 </Typography>
                             </span>
                         </Paper>

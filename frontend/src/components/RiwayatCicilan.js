@@ -135,7 +135,7 @@ function RiwayatCicilan(props) {
     }, [])
 
     return (
-        <Card className={classes.card}>
+        <Card className={classes.card} style={{ marginTop: '1rem'}}>
             <CardContent>
                 <Typography variant="h5" component="h2">
                     Riwayat Pembayaran Cicilan
