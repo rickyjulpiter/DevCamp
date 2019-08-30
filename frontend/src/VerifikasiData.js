@@ -93,7 +93,9 @@ function VerifikasiData(props) {
                                 }}
                             />
                             <span className={classes.imageBackdrop} />
-                            <span className={classes.imageButton}>
+                            <span className={classes.imageButton}
+                                style={{padding:'0.4rem'}}
+                            >
                                 <Typography
                                     component="span"
                                     variant="subtitle1"
@@ -108,6 +110,7 @@ function VerifikasiData(props) {
                             style={{
                                 marginTop: '1rem',
                                 width: image.width,
+                                padding:'0.4rem'
                             }}
                         >
                             <span className={classes.imageButton}>
@@ -168,15 +171,6 @@ function VerifikasiData(props) {
                                 </Button>
                             </span>
                         </Paper>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                        onClick={() => props.history.push('/dashboard')}
-                    >
-                        adsjijadsi                    </Button>
                 </Container>
             </header>
         </div >
