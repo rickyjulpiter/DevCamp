@@ -89,7 +89,7 @@ function PaketInfo(props) {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        href="/paket"
+                        onClick={() => props.history.push('/paket')}
                     >
                         Mantap Bos
                     </Button>
