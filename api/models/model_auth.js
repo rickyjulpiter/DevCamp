@@ -6,7 +6,8 @@ const {pg,db} = require('../db');
 function generateAPIToken(user){
     const token= jwt.sign({
         uid: user.user_id, 
-        email: user.email
+        email: user.email,
+        type: user.jenis_anggota
     },config.get('jwtPrivateKey'));
     return token;
 }

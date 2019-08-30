@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Mascot from './assets/mascot.png';
-import { Button, Card, CardContent, CardActions, Box } from '@material-ui/core';
+import { Button, Card, CardContent, CardActions, Box , Grid} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -118,36 +118,33 @@ function Checkout(props) {
 
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="App-header" style={{marginTop:40}}>
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
-                    <div className={classes.paper} style={{ paddingBottom: '0.5rem' }}>
-                        <div className={classes.titles}>
-                            <Typography component="h1" variant="h5" style={{ fontWeight: 800 }}>
-                                Mau nabung apa?
-                            </Typography>
-                        </div>
-                    </div>
-                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
-                        Pinjaman Wajib
-                    </Button>
-                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
-                        Pinjaman Sukarela
-                    </Button>
                     <Card className={classes.card}>
-                        <CardContent>
-                            <Typography variant="h5" component="h2">
-                                Daftar Simpanan
+                <CardContent>
+                    <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                    style={{minheight: '100vh'}}
+                    >
+                        <Typography variant="h5" component="h2">
+                            <Box>1923012912891</Box>
                         </Typography>
-                            <Typography className={classes.pos} color="textSecondary">
-                                {/* Daftar Kekayaan Saat Ini */}
-                            </Typography>
-                            <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
-                                <Box fontWeight={800}>Kekayaan Total</Box>
-                                <Box fontWeight={800}>Rp. 39.000.000,00</Box>
-                            </Typography>
-                        </CardContent>
-                    </Card>
+                    </Grid>    
+                    <Typography className={classes.pos} color="textSecondary">
+                        {/* Daftar Kekayaan Saat Ini */}
+                    </Typography>
+                    <Typography  variant="body2" component="p" className={classes.arrange}>
+                        <Box >Lakukan pembayaran ke Virtual Account tersebut dengan metode pembayaran yang anda inginkan.</Box>
+                    </Typography>
+                    <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
+                        <Box fontWeight={800}>Mohon lakukan sebelum 05 Septermber 2019</Box>
+                    </Typography>
+                </CardContent>
+                </Card>
                 </Container>
             </header>
         </div >

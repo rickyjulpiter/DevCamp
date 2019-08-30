@@ -157,6 +157,7 @@ function Paket(props) {
                             className={classes.image}
                             style={{
                                 width: image.width,
+                                marginBottom: 15
                             }}
                             onClick={() => props.history.push(`/paket/${image.slug}`)}
                         >

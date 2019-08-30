@@ -11,9 +11,8 @@ function apiTokenAuth(req,res,next){
     try{
         const decoded = jwt.verify(token,config.get('jwtPrivateKey'));
         req.uid = decoded.uid;
-        req.cid = decoded.cid;
-        req.posid = decoded.posid;
-        req.isowner = decoded.isowner;
+        req.email = decoded.email;
+        req.type = decoded.type;
         next();
     }catch(ex){
         return res.status(400).send({
