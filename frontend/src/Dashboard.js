@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Mascot from './assets/mascot.png';
 import Paper from '@material-ui/core/Paper';
-import { Button, Card, CardContent, CardActions, Box } from '@material-ui/core';
+import { Button, Card, CardContent, CardActions, Box, Grid } from '@material-ui/core';
 
 const simpanan = [
     {
@@ -147,9 +147,50 @@ function Paket(props) {
         )
     } else if (status === "pembayaran") {
         dashboardContent = (
-            <Typography style={{ paddingBottom: '1rem' }}>
-                Akun anda telah di setujui oleh pihak tokoKoperasi. <b> Tinggal satu langkah lagi</b>
-            </Typography>
+            <div>
+                <Typography style={{ paddingBottom: '1rem' }}>
+                    Akun anda telah di setujui oleh pihak tokoKoperasi. <b> Tinggal satu langkah lagi</b> dan anda dapat memanfaatkan fitur tokoKoperasi.
+                </Typography>
+                <Typography style={{ paddingBottom: '1rem' }}>
+                    Untuk menyelesaikan pendaftaran, silahkan lakukan pembayaran dibawah ini
+                </Typography>
+                <Card className={classes.card}>
+                <CardContent>
+                    <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                    style={{minheight: '100vh'}}
+                    >
+                        <Typography variant="h5" component="h2">
+                            <Box>1923012912891</Box>
+                        </Typography>
+                    </Grid>    
+                    <Typography className={classes.pos} color="textSecondary">
+                        {/* Daftar Kekayaan Saat Ini */}
+                    </Typography>
+                    <Typography  variant="body2" component="p" className={classes.arrange}>
+                        <Box >Lakukan pembayaran ke Virtual Account tersebut dengan metode pembayaran yang anda inginkan.</Box>
+                    </Typography>
+                    <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
+                        <Box fontWeight={800}>Mohon lakukan sebelum 05 Septermber 2019</Box>
+                    </Typography>
+                </CardContent>
+                </Card>
+
+                <Button	
+                    type="submit"	
+                    fullWidth	
+                    variant="contained"	
+                    color="primary"	
+                    className={classes.submit}	
+                    onClick={() => props.history.push('/dashboard')}	
+                >	
+                        Kembali ke Halaman Utama                   
+                </Button>
+            
+            </div>
         )
     } else {
         dashboardContent = (
