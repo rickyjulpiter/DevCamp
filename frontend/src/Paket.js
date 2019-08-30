@@ -5,26 +5,30 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Mascot from './assets/mascot.png';
+import Paper from '@material-ui/core/Paper';
 
 const images = [
     {
         url: '/static/images/grid-list/breakfast.jpg',
-        title: 'Gold',
-        color: '#FFFF33',
+        title: 'GOLD',
+        color: '#DAA520',
+        description: 'Asuransi Kesehatan, Angsuran Kematian, Bunga Simpanan TERBESAR 2%',
         width: '50%',
         slug: 'gold',
     },
     {
         url: '/static/images/grid-list/burgers.jpg',
-        title: 'Silver',
-        color: '#D3D3D3',
+        title: 'SILVER',
+        color: '#C0C0C0',
+        description: 'Angsuran Kesehatan, Bunga Simpanan 1,6% Bunga Pinjaman HANYA 2%',
         width: '50%',
         slug: 'silver',
     },
     {
         url: '/static/images/grid-list/burgers.jpg',
-        title: 'Bronze',
+        title: 'BRONZE',
         color: '#CD7F32',
+        description: 'Bunga Pinjaman TERMURAH hanya 1,5% dan Bonus Lainnya',
         width: '50%',
         slug: 'bronze',
     },
@@ -36,16 +40,15 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: theme.palette.common.white,
         },
     },
+    titles: {
+        paddingBottom: '1rem',
+    },
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(4),
         display: 'flex',
         // flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'center',
-    },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -62,10 +65,10 @@ const useStyles = makeStyles(theme => ({
     },
     image: {
         position: 'relative',
-        height: 200,
+        height: 400,
         [theme.breakpoints.down('xs')]: {
             width: '100% !important', // Overrides inline-style
-            height: 100,
+            height: 200,
         },
         '&:hover, &$focusVisible': {
             zIndex: 1,
@@ -88,8 +91,9 @@ const useStyles = makeStyles(theme => ({
         top: 0,
         bottom: 0,
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         color: theme.palette.common.black,
     },
     imageSrc: {
@@ -113,16 +117,15 @@ const useStyles = makeStyles(theme => ({
     },
     imageTitle: {
         position: 'relative',
-        padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+        fontSize: '2rem',
+        fontWeight: 800,
+        padding: `${theme.spacing(2)}px`,
+        paddingBottom: 0,
     },
-    imageMarked: {
-        height: 3,
-        width: 18,
-        backgroundColor: theme.palette.common.black,
-        position: 'absolute',
-        bottom: -2,
-        left: 'calc(50% - 9px)',
-        transition: theme.transitions.create('opacity'),
+    imageDescription: {
+        position: 'relative',
+        padding: `${theme.spacing(2)}px`,
+        paddingBottom: 0,
     },
 }));
 
@@ -134,23 +137,24 @@ function Paket(props) {
             <header className="App-header">
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
-                    <div className={classes.paper}>
+                    <div className={classes.paper} style={{ paddingBottom: '0.5rem' }}>
                         <div className={classes.titles}>
-                            <Typography component="h1" variant="h5">
-                                Selamat Datang
+                            <Typography component="h1" variant="h5" style={{ color: 'green', fontWeight: 800 }}>
+                                Selamat Datang!
                             </Typography>
                             <Typography>
-                                Anda belum punya paket.
+                                Satria Sipayung
                             </Typography>
                         </div>
                         <img width="15%" src={Mascot} alt="Mascot" />
+
                     </div>
-                    <Typography>
-                        Yuk pilih paket anda!
+                    <Typography style={{ paddingBottom: '1rem' }}>
+                        Yuk pilih jenis keanggotaan yang kamu mau !
                     </Typography>
+
                     {images.map(image => (
-                        <ButtonBase
-                            focusRipple
+                        <Paper
                             key={image.title}
                             className={classes.image}
                             style={{
@@ -164,19 +168,27 @@ function Paket(props) {
                                     backgroundImage: `url(${image.url})`,
                                 }}
                             />
-                            <span className={classes.imageBackdrop} style={{ backgroundColor: image.color }} />
+                            <span className={classes.imageBackdrop} />
                             <span className={classes.imageButton}>
                                 <Typography
                                     component="span"
                                     variant="subtitle1"
-                                    color="inherit"
                                     className={classes.imageTitle}
+                                    fontWeight="fontWeightBold"
                                 >
-                                    {image.title}
-                                    <span className={classes.imageMarked} />
+                                    Paket <a style={{ color: image.color }}>{image.title}</a>
+                                </Typography>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                    color="inherit"
+                                    className={classes.imageDescription}
+                                    fontWeight="fontWeightBold"
+                                >
+                                    {image.description}
                                 </Typography>
                             </span>
-                        </ButtonBase>
+                        </Paper>
                     ))}
                 </Container>
             </header>
