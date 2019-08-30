@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
 import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Button, Box } from '@material-ui/core';
 
 const image = {
@@ -12,7 +13,7 @@ const image = {
     title: 'GOLD',
     color: '#DAA520',
     description: 'Asuransi Kesehatan, Angsuran Kematian, Bunga Simpanan TERBESAR 2%',
-    width: '50%',
+    width: '100%',
     slug: 'gold',
 }
 
@@ -45,6 +46,10 @@ const useStyles = makeStyles(theme => ({
         fontSize: '1.5rem',
         fontWeight: 800,
     },
+    image: {
+        display: 'flex',
+        flexDirection: 'column',
+    }
 }));
 
 function VerifikasiData(props) {
@@ -64,27 +69,105 @@ function VerifikasiData(props) {
                                 className={classes.imageTitle}
                                 fontWeight="fontWeightBold"
                             >
-                                Paket <a style={{ color: image.color }}>{image.title}</a>
+                                Wahh Keren, Kamu Berhasil 
+                                Memilih Paket <a style={{ color: image.color }}>{image.title}</a>
                             </Typography>
                         </div>
                     </div>
-                    <Typography component="div">
-                        <Box fontWeight="fontWeightLight" m={1}>
-                            Angsuran Kesehatan
-                        </Box>
-                        <Box fontWeight="fontWeightRegular" m={1}>
-                            Angsuran Kematian
-                        </Box>
-                        <Box fontWeight="fontWeightMedium" m={1}>
-                            Kode Voucher GOKIL
-                        </Box>
-                        <Box fontWeight={500} m={1}>
-                            Bunga Simpanan Terbesar 2%
-                        </Box>
-                        <Box fontWeight="fontWeightBold" m={1}>
-                            Bunga Pinjaman 5%
-                        </Box>
+                    <Typography style={{ paddingBottom: '1rem' }}>
+                        Nah tinggal satu tahap lagi nih, untuk bisa menjadi
+                        anggota tokoKoperasi
                     </Typography>
+                    <Paper
+                            className={classes.image}
+                            style={{
+                                width: image.width,
+                                backgroundColor: 'lightblue'
+                            }}
+                            onClick={() => props.history.push(`/paket/${image.slug}`)}
+                        >
+                            <span
+                                className={classes.imageSrc}
+                                style={{
+                                    backgroundImage: `url(${image.url})`,
+                                }}
+                            />
+                            <span className={classes.imageBackdrop} />
+                            <span className={classes.imageButton}>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                >
+                                    Kamu harus upload foto KTP dan diri kamu agar
+                                    kami bisa verifikasi data kamu
+                                </Typography>
+                            </span>
+                        </Paper>
+                        <Paper
+                            className={classes.image}
+                            style={{
+                                marginTop: '1rem',
+                                width: image.width,
+                            }}
+                        >
+                            <span className={classes.imageButton}>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                    className={classes.imageTitle}
+                                >
+                                    Foto KTP
+                                </Typography>
+                            </span>
+                            <span className={classes.imageButton}>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                >
+                                    satria.png
+                                </Typography>
+                                <Button
+                                    component="span"
+                                    variant="subtitle1"
+                                    variant="contained"
+                                >
+                                    Upload KTP
+                                </Button>
+                            </span>
+                        </Paper>
+                        <Paper
+                            key={image.title}
+                            className={classes.image}
+                            style={{
+                                marginTop: '1rem',
+                                width: image.width,
+                            }}
+                        >
+                            <span className={classes.imageButton}>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                    className={classes.imageTitle}
+                                >
+                                    Foto Dirimu dengan KTP
+                                </Typography>
+                            </span>
+                            <span className={classes.imageButton}>
+                            <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                >
+                                    satria.png
+                                </Typography>
+                                <Button
+                                    component="span"
+                                    variant="subtitle1"
+                                    variant="contained"
+                                >
+                                    Upload KTP
+                                </Button>
+                            </span>
+                        </Paper>
                     <Button
                         type="submit"
                         fullWidth
