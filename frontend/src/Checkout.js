@@ -4,31 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Mascot from './assets/mascot.png';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import { Button, Card, CardContent, CardActions, Box } from '@material-ui/core';
-
-const simpanan = [
-    {
-        name: "Simpanan Wajib",
-        price: "Rp. 8.000.000,00"
-    },
-    {
-        name: "Simpanan Pokok",
-        price: "Rp. 9.000.000,00"
-    },
-    {
-        name: "Simpanan Sukarela",
-        price: "Rp. 19.000.000,00"
-    },
-    {
-        name: "Simpanan SHU",
-        price: "Rp. 3.000.000,00"
-    },
-]
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -137,9 +113,8 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function Simpanan(props) {
+function Checkout(props) {
     const classes = useStyles();
-    var dashboardContent;
 
     return (
         <div className="App">
@@ -153,54 +128,11 @@ function Simpanan(props) {
                             </Typography>
                         </div>
                     </div>
-                    <Card className={classes.card}>
-                        <CardContent>
-                            <Typography variant="h5" component="h2">
-                                Simpanan Wajib
-                        </Typography>
-                            <Typography className={classes.pos} color="textSecondary">
-                                {/* Daftar Kekayaan Saat Ini */}
-                            </Typography>
-                            <Typography variant="body2" component="p" className={classes.arrange}>
-                                <Box>Nominal</Box>
-                                <Box>Rp. 100.000,00</Box>
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                    <Card className={classes.card}>
-                        <CardContent>
-                            <Typography variant="h5" component="h2">
-                                Simpanan Sukarela
-                            </Typography>
-                            <Typography className={classes.pos} color="textSecondary">
-                                {/* Daftar Kekayaan Saat Ini */}
-                            </Typography>
-                            <form className={classes.form} noValidate>
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="nominal_simpanan"
-                                    label="Nominal"
-                                    name="nominal_simpanan"
-                                    autoComplete="nominal_simpanan"
-                                    autoFocus
-                                />
-                                <Button
-                                    type="submit"
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.submit}
-                                >
-                                    Sign In
-                            </Button>
-                            </form>
-                        </CardContent>
-                    </Card>
-                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/simpanan')}>
-                        Simpanan Sukarela
+                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
+                        Pinjaman Wajib
+                    </Button>
+                    <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
+                        Pinjaman Sukarela
                     </Button>
                     <Card className={classes.card}>
                         <CardContent>
@@ -210,12 +142,6 @@ function Simpanan(props) {
                             <Typography className={classes.pos} color="textSecondary">
                                 {/* Daftar Kekayaan Saat Ini */}
                             </Typography>
-                            {simpanan.map(kekayaan => (
-                                <Typography variant="body2" component="p" className={classes.arrange}>
-                                    <div>{kekayaan.name}</div>
-                                    <div>{kekayaan.price}</div>
-                                </Typography>
-                            ))}
                             <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
                                 <Box fontWeight={800}>Kekayaan Total</Box>
                                 <Box fontWeight={800}>Rp. 39.000.000,00</Box>
@@ -223,9 +149,9 @@ function Simpanan(props) {
                         </CardContent>
                     </Card>
                 </Container>
-            </header >
+            </header>
         </div >
     );
 }
 
-export default Simpanan;
+export default Checkout;

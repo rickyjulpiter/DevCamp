@@ -9,6 +9,7 @@ import VerifikasiData from './VerifikasiData';
 import Dashboard from './Dashboard';
 import Simpanan from './Simpanan';
 import Pinjaman from './Pinjaman';
+import Checkout from './Checkout';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -22,6 +23,7 @@ const routing = (
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/dashboard/simpanan" component={Simpanan} />
             <Route exact path="/dashboard/pinjaman" component={Pinjaman} />
+            <Route exact path="/checkout" component={Checkout} />
             {/* <Route path="/contact" component={Contact} /> */}
         </div>
     </Router>
