@@ -126,7 +126,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function Paket() {
+function Paket(props) {
     const classes = useStyles();
 
     return (
@@ -156,7 +156,7 @@ function Paket() {
                             style={{
                                 width: image.width,
                             }}
-                            href={`/paket/${image.slug}`}
+                            onClick={() => props.history.push(`/paket/${image.slug}`)}
                         >
                             <span
                                 className={classes.imageSrc}

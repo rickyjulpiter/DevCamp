@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Logo from './assets/logo.png';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -36,17 +37,29 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function App() {
+function App(props) {
+  const [cookies, setCookie] = useCookies(['name']);
+
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log("haha");
-    const data = {
+    const dataGold = {
       "email": "rui@yahoo.com",
       "password": "123"
     }
-    const res = await axios.post("http://172.32.1.247:4000/api/v1/auth/login", data);
-    console.log(res);
-    console.log("haha");
+    const data = {
+      "email": "ricky",
+      "password": "123"
+    }
+    try {
+      const res = await axios.post("http://172.32.1.247:4000/api/v1/auth/login", data);
+      //set cookie
+      setCookie('token', res.data.data.token, { path: '/' });
+      console.log(cookies.token);
+      props.history.push('/paket');
+
+    } catch (error) {
+      throw new Error(error.message)
+    }
   }
   const classes = useStyles();
 
