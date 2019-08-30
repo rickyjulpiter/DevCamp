@@ -148,7 +148,7 @@ function Paket(props) {
     } else if (status === "pembayaran") {
         dashboardContent = (
             <Typography style={{ paddingBottom: '1rem' }}>
-                Tes
+                Akun anda telah di setujui oleh pihak tokoKoperasi. <b> Tinggal satu langkah lagi</b>
             </Typography>
         )
     } else {

@@ -110,7 +110,7 @@ function VerifikasiData(props) {
                             style={{
                                 marginTop: '1rem',
                                 width: image.width,
-                                padding:'0.4rem'
+                                padding:'0.4rem',
                             }}
                         >
                             <span className={classes.imageButton}>
@@ -118,14 +118,17 @@ function VerifikasiData(props) {
                                     component="span"
                                     variant="subtitle1"
                                     className={classes.imageTitle}
+                                    style = {{paddingLeft:10}}
                                 >
                                     Foto KTP
                                 </Typography>
                             </span>
-                            <span className={classes.imageButton}>
+                            <span className={classes.imageButton}
+                                style={{textAlign: 'center'}}>
                                 <Typography
                                     component="span"
                                     variant="subtitle1"
+                                    style = {{marginRight:20}}
                                 >
                                     satria.png
                                 </Typography>
@@ -144,6 +147,7 @@ function VerifikasiData(props) {
                             style={{
                                 marginTop: '1rem',
                                 width: image.width,
+                                padding:'0.4rem',
                             }}
                         >
                             <span className={classes.imageButton}>
@@ -151,14 +155,17 @@ function VerifikasiData(props) {
                                     component="span"
                                     variant="subtitle1"
                                     className={classes.imageTitle}
+                                    style = {{paddingLeft:10}}
                                 >
                                     Foto Dirimu dengan KTP
                                 </Typography>
                             </span>
-                            <span className={classes.imageButton}>
+                            <span className={classes.imageButton}
+                                style={{ textAlign: 'center' }}>
                             <Typography
                                     component="span"
                                     variant="subtitle1"
+                                    style = {{marginRight:20}}
                                 >
                                     satria.png
                                 </Typography>
@@ -171,6 +178,16 @@ function VerifikasiData(props) {
                                 </Button>
                             </span>
                         </Paper>
+                        <Button	
+                            type="submit"	
+                            fullWidth	
+                            variant="contained"	
+                            color="primary"	
+                            className={classes.submit}	
+                            onClick={() => props.history.push('/dashboard')}	
+                        >	
+                        Simpan                   
+                        </Button>
                 </Container>
             </header>
         </div >
