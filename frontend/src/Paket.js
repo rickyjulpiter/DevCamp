@@ -13,7 +13,7 @@ const images = [
         title: 'GOLD',
         color: '#DAA520',
         description: 'Asuransi Kesehatan, Angsuran Kematian, Bunga Simpanan TERBESAR 2%',
-        width: '50%',
+        width: '100%',
         slug: 'gold',
     },
     {
@@ -21,7 +21,7 @@ const images = [
         title: 'SILVER',
         color: '#C0C0C0',
         description: 'Angsuran Kesehatan, Bunga Simpanan 1,6% Bunga Pinjaman HANYA 2%',
-        width: '50%',
+        width: '100%',
         slug: 'silver',
     },
     {
@@ -29,7 +29,7 @@ const images = [
         title: 'BRONZE',
         color: '#CD7F32',
         description: 'Bunga Pinjaman TERMURAH hanya 1,5% dan Bonus Lainnya',
-        width: '50%',
+        width: '100%',
         slug: 'bronze',
     },
 ];
@@ -65,10 +65,9 @@ const useStyles = makeStyles(theme => ({
     },
     image: {
         position: 'relative',
-        height: 400,
+        height: 200,
         [theme.breakpoints.down('xs')]: {
             width: '100% !important', // Overrides inline-style
-            height: 200,
         },
         '&:hover, &$focusVisible': {
             zIndex: 1,
@@ -147,7 +146,6 @@ function Paket(props) {
                             </Typography>
                         </div>
                         <img width="15%" src={Mascot} alt="Mascot" />
-
                     </div>
                     <Typography style={{ paddingBottom: '1rem' }}>
                         Yuk pilih jenis keanggotaan yang kamu mau !
