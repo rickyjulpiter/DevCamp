@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -118,8 +118,21 @@ const useStyles = makeStyles(theme => ({
 
 function Paket(props) {
     const classes = useStyles();
+    const [status, setStatus] = useState("verifikasi");
+    const statuses = ["verifikasi", "pembayaran", "verified"]
+
+    const next = (event) => {
+        event.preventDefault()
+        if (status === "verifikasi") {
+            setStatus("pembayaran")
+        } else if (status === "pembayaran") {
+            setStatus("verified")
+        } else {
+            setStatus("verifikasi")
+        }
+    }
+
     var dashboardContent;
-    const status = "";
 
     if (status === "verifikasi") {
         dashboardContent = (
@@ -156,21 +169,10 @@ function Paket(props) {
                             <Box >Lakukan pembayaran ke Virtual Account tersebut dengan metode pembayaran yang anda inginkan.</Box>
                         </Typography>
                         <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
-                            <Box fontWeight={800}>Mohon lakukan sebelum 05 Septermber 2019</Box>
+                            <Box fontWeight={800}>Mohon lakukan sebelum 05 September 2019</Box>
                         </Typography>
                     </CardContent>
                 </Card>
-
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    className={classes.submit}
-                    onClick={() => props.history.push('/dashboard')}
-                >
-                    Kembali ke Halaman Utama
-                </Button>
 
             </div>
         )
@@ -209,6 +211,7 @@ function Paket(props) {
                         <img width="15%" src={Mascot} alt="Mascot" />
                     </div>
                     {dashboardContent}
+                    {status !== "verified" && (<Button className={classes.button} onClick={next}>UPDATE STATUS</Button>)}
                 </Container>
             </header>
         </div >

@@ -14,10 +14,21 @@ import SimulasiPinjaman from './SimulasiPinjaman';
 import SimulasiSimpanan from './SimulasiSimpanan';
 
 import * as serviceWorker from './serviceWorker';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { green } from '@material-ui/core/colors';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: "#42B549",
+            contrastText: "white" //button text white instead of black
+        },
+    },
+})
 
 const routing = (
     <Router>
-        <div>
+        <MuiThemeProvider theme={theme}>
             <Route exact path="/" component={App} />
             <Route exact path="/paket" component={Paket} />
             <Route exact path="/paket/:slug" component={PaketInfo} />
@@ -27,8 +38,9 @@ const routing = (
             <Route exact path="/dashboard/pinjaman" component={Pinjaman} />
             <Route exact path="/simulasi/simpanan" component={SimulasiSimpanan} />
             <Route exact path="/simulasi/pinjaman" component={SimulasiPinjaman} />
+            <Route exact path="/checkout" component={Checkout} />
             {/* <Route path="/contact" component={Contact} /> */}
-        </div>
+        </MuiThemeProvider>
     </Router>
 )
 

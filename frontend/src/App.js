@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container';
 import Logo from './assets/logo.png';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -66,9 +67,6 @@ function App(props) {
           <CssBaseline />
           <div className={classes.paper}>
             <img alt="Logo" width="50%" src={Logo} />
-            {/* <Typography component="h1" variant="h5">
-              Sign in
-            </Typography> */}
             <form className={classes.form} noValidate onSubmit={onSubmit}>
               <TextField
                 variant="outlined"
