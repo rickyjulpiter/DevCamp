@@ -48,7 +48,7 @@ function App(props) {
     }
     try {
       const res = await axios.post("http://172.32.1.247:4000/api/v1/auth/login", data);
-      if(res.data.success){
+      if (res.data.success) {
         //set cookie
         setCookie('token', res.data.data.token, { path: '/' });
         props.history.push('/paket');

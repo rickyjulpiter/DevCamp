@@ -7,25 +7,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Mascot from './assets/mascot.png';
 import Paper from '@material-ui/core/Paper';
 import { Button, Card, CardContent, CardActions, Box, Grid } from '@material-ui/core';
-
-const simpanan = [
-    {
-        name: "Simpanan Wajib",
-        price: "Rp. 8.000.000,00"
-    },
-    {
-        name: "Simpanan Pokok",
-        price: "Rp. 9.000.000,00"
-    },
-    {
-        name: "Simpanan Sukarela",
-        price: "Rp. 19.000.000,00"
-    },
-    {
-        name: "Simpanan SHU",
-        price: "Rp. 3.000.000,00"
-    },
-]
+import Kekayaan from './components/Kekayaan';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -137,7 +119,7 @@ const useStyles = makeStyles(theme => ({
 function Paket(props) {
     const classes = useStyles();
     var dashboardContent;
-    const status = "pembayaran";
+    const status = "";
 
     if (status === "verifikasi") {
         dashboardContent = (
@@ -155,41 +137,41 @@ function Paket(props) {
                     Untuk menyelesaikan pendaftaran, silahkan lakukan pembayaran dibawah ini
                 </Typography>
                 <Card className={classes.card}>
-                <CardContent>
-                    <Grid
-                    container
-                    spacing={0}
-                    alignItems="center"
-                    justify="center"
-                    style={{minheight: '100vh'}}
-                    >
-                        <Typography variant="h5" component="h2">
-                            <Box>1923012912891</Box>
+                    <CardContent>
+                        <Grid
+                            container
+                            spacing={0}
+                            alignItems="center"
+                            justify="center"
+                            style={{ minheight: '100vh' }}
+                        >
+                            <Typography variant="h5" component="h2">
+                                <Box>1923012912891</Box>
+                            </Typography>
+                        </Grid>
+                        <Typography className={classes.pos} color="textSecondary">
+                            {/* Daftar Kekayaan Saat Ini */}
                         </Typography>
-                    </Grid>    
-                    <Typography className={classes.pos} color="textSecondary">
-                        {/* Daftar Kekayaan Saat Ini */}
-                    </Typography>
-                    <Typography  variant="body2" component="p" className={classes.arrange}>
-                        <Box >Lakukan pembayaran ke Virtual Account tersebut dengan metode pembayaran yang anda inginkan.</Box>
-                    </Typography>
-                    <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
-                        <Box fontWeight={800}>Mohon lakukan sebelum 05 Septermber 2019</Box>
-                    </Typography>
-                </CardContent>
+                        <Typography variant="body2" component="p" className={classes.arrange}>
+                            <Box >Lakukan pembayaran ke Virtual Account tersebut dengan metode pembayaran yang anda inginkan.</Box>
+                        </Typography>
+                        <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
+                            <Box fontWeight={800}>Mohon lakukan sebelum 05 Septermber 2019</Box>
+                        </Typography>
+                    </CardContent>
                 </Card>
 
-                <Button	
-                    type="submit"	
-                    fullWidth	
-                    variant="contained"	
-                    color="primary"	
-                    className={classes.submit}	
-                    onClick={() => props.history.push('/dashboard')}	
-                >	
-                        Kembali ke Halaman Utama                   
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                    onClick={() => props.history.push('/dashboard')}
+                >
+                    Kembali ke Halaman Utama
                 </Button>
-            
+
             </div>
         )
     } else {
@@ -205,27 +187,7 @@ function Paket(props) {
                 <Button variant="contained" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
                     Pinjaman
                 </Button>
-                <Card className={classes.card}>
-                    <CardContent>
-                        <Typography variant="h5" component="h2">
-                            Daftar Kekayaan
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                            {/* Daftar Kekayaan Saat Ini */}
-                        </Typography>
-                        {simpanan.map(kekayaan => (
-                            <Typography variant="body2" component="p" className={classes.arrange}>
-                                <div>{kekayaan.name}</div>
-                                <div>{kekayaan.price}</div>
-                            </Typography>
-                        ))}
-                        <Typography fontWeight={800} variant="body2" component="p" className={classes.arrange}>
-                            <Box fontWeight={800}>Kekayaan Total</Box>
-                            <Box fontWeight={800}>Rp. 39.000.000,00</Box>
-                        </Typography>
-                    </CardContent>
-                </Card>
-
+                <Kekayaan />
             </div>
         )
     }
