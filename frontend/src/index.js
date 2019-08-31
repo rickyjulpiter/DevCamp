@@ -12,6 +12,7 @@ import Pinjaman from './Pinjaman';
 import Checkout from './Checkout';
 import SimulasiPinjaman from './SimulasiPinjaman';
 import SimulasiSimpanan from './SimulasiSimpanan';
+import StatusPinjaman from './StatusPinjaman';
 
 import * as serviceWorker from './serviceWorker';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
@@ -38,6 +39,7 @@ const routing = (
             <Route exact path="/dashboard/pinjaman" component={Pinjaman} />
             <Route exact path="/simulasi/simpanan" component={SimulasiSimpanan} />
             <Route exact path="/simulasi/pinjaman" component={SimulasiPinjaman} />
+            <Route exact path="/status/pinjaman" component={StatusPinjaman} />
             <Route exact path="/checkout" component={Checkout} />
             {/* <Route path="/contact" component={Contact} /> */}
         </MuiThemeProvider>

@@ -120,7 +120,6 @@ function Simpanan(props) {
     const [nominalAngsuran, setNominalAngsuran] = useState('');
 
     var hasilSimulasi;
-    console.log(nominal);
     if (nominal) {
         hasilSimulasi = (
             <Card className={classes.card}>
@@ -130,19 +129,19 @@ function Simpanan(props) {
                     </div>
                     <div variant="body2" component="p" className={classes.arrange}>
                         <div>Angsuran Pokok</div>
-                        <div>Rp 1,125,000</div>
+                        <div>Rp 1,000,000</div>
                     </div>
                     <div variant="body2" component="p" className={classes.arrange}>
                         <div>Jasa</div>
-                        <div>Rp 450,000</div>
+                        <div>Rp 100,000</div>
                     </div>
                     <div fontWeight={800} variant="body2" component="p" className={classes.arrange}>
                         <Box fontWeight={800}>Total</Box>
-                        <Box fontWeight={800}>Rp 1,575,000</Box>
+                        <Box fontWeight={800}>Rp 1,100,000</Box>
                     </div>
                     <div variant="body2" component="p" className={classes.arrange}>
                         <div>Dibayar (bulan)</div>
-                        <div>40 bulan</div>
+                        <div>10 bulan</div>
                     </div>
                     <Button
                         type="submit"
@@ -151,6 +150,7 @@ function Simpanan(props) {
                         color="primary"
                         className={classes.submit}
                         style={{ bottomMargin: 0 }}
+                        onClick={() => props.history.push('/status/pinjaman')}
                     >
                         Ajukan Pinjaman
                 </Button>
@@ -174,12 +174,6 @@ function Simpanan(props) {
                     </div>
                     <Card className={classes.card}>
                         <CardContent>
-                            <Typography variant="h5" component="h2">
-                                Simpanan Wajib
-                            </Typography>
-                            <Typography className={classes.pos} color="textSecondary">
-                                {/* Daftar Kekayaan Saat Ini */}
-                            </Typography>
                             <form className={classes.form} onSubmit={(event) => {
                                 event.preventDefault();
                                 setNominal("Rp. 10.000.000,00");

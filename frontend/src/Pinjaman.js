@@ -39,7 +39,7 @@ function Pinjaman(props) {
     const headers = { headers: { "x-auth-token": `${cookies.token}` } };
     useEffect(() => {
         const fetch = async () => {
-            axios.post("http://172.32.1.247:4000/api/v1/cicilan/", {}, headers)
+            axios.post("http://10.80.214.129:4000/api/v1/cicilan/", {}, headers)
                 .then((res) => {
                     if (res.data.success) {
                         setCicilan(res.data.data);
@@ -67,22 +67,25 @@ function Pinjaman(props) {
                         </div>
                     </div>
                     {!cicilan && (
-                        <div>
-                            <Typography style={{ paddingBottom: '1rem' }}>
-                                Anda belum memiliki pinjaman.
-                            </Typography>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.submit}
-                                onClick={() => props.history.push('/simulasi/pinjaman')}
-                            >
-                                Ajukan Pinjaman
-                        </Button>
-                        </div>
+                        <Typography style={{ paddingBottom: '1rem' }}>
+                            Anda belum memiliki pinjaman.
+                        </Typography>
                     )}
+                    <div>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={() => props.history.push('/simulasi/pinjaman')}
+                            style={{
+                                marginBottom: 10,
+                            }}
+                        >
+                            Ajukan Pinjaman
+                        </Button>
+                    </div>
                     {cicilan && (
                         <div>
                             <Card className={classes.card}>

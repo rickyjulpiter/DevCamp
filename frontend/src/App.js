@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 function App(props) {
   const [cookies, setCookie] = useCookies(['name']);
+  const [error, setError] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -47,15 +48,13 @@ function App(props) {
       "email": event.target.email.value,
       "password": event.target.password.value
     }
-    try {
-      const res = await axios.post("http://172.32.1.247:4000/api/v1/auth/login", data);
-      if (res.data.success) {
-        //set cookie
-        setCookie('token', res.data.data.token, { path: '/' });
-        props.history.push('/paket');
-      }
-    } catch (error) {
-      console.log(error);
+    const res = await axios.post("http://10.80.214.129:4000/api/v1/auth/login", data);
+    if (res.data.success) {
+      //set cookie
+      setCookie('token', res.data.data.token, { path: '/' });
+      props.history.push('/paket');
+    } else {
+      setError(true);
     }
   }
   const classes = useStyles();
@@ -67,12 +66,13 @@ function App(props) {
           <CssBaseline />
           <div className={classes.paper}>
             <img alt="Logo" width="50%" src={Logo} />
-            <form className={classes.form} noValidate onSubmit={onSubmit}>
+            <form className={classes.form} onSubmit={onSubmit}>
               <TextField
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
+                error={error}
                 id="email"
                 label="Email Address"
                 name="email"
@@ -83,6 +83,7 @@ function App(props) {
                 variant="outlined"
                 margin="normal"
                 required
+                error={error}
                 fullWidth
                 name="password"
                 label="Password"

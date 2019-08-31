@@ -118,17 +118,20 @@ const useStyles = makeStyles(theme => ({
 
 function Paket(props) {
     const classes = useStyles();
-    const [status, setStatus] = useState("verifikasi");
+    const [status, setStatus] = useState(props.location.state ? props.location.state.status : "verified");
     const statuses = ["verifikasi", "pembayaran", "verified"]
 
     const next = (event) => {
         event.preventDefault()
         if (status === "verifikasi") {
             setStatus("pembayaran")
+            props.history.replace({ pathname: '/dashboard', state: { status: "pembayaran" } })
         } else if (status === "pembayaran") {
             setStatus("verified")
+            props.history.replace({ pathname: '/dashboard', state: { status: "verified" } })
         } else {
             setStatus("verifikasi")
+            props.history.replace({ pathname: '/dashboard', state: { status: "verifikasi" } })
         }
     }
 
@@ -144,7 +147,7 @@ function Paket(props) {
         dashboardContent = (
             <div>
                 <Typography style={{ paddingBottom: '1rem' }}>
-                    Akun anda telah di setujui oleh pihak tokoKoperasi. <b> Tinggal satu langkah lagi</b> dan anda dapat memanfaatkan fitur tokoKoperasi.
+                    Akun anda telah di setujui oleh pihak TokoKoperasi. <b> Tinggal satu langkah lagi</b> dan anda dapat memanfaatkan fitur TokoKoperasi.
                 </Typography>
                 <Typography style={{ paddingBottom: '1rem' }}>
                     Untuk menyelesaikan pendaftaran, silahkan lakukan pembayaran dibawah ini
@@ -183,14 +186,14 @@ function Paket(props) {
                     Selamat akun anda telah di setujui!
                     Saatnya lakukan transkasi sesudai keinginan kamu
                 </Typography>
-                <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push('/dashboard/simpanan')}>
+                <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push({ pathname: '/dashboard/simpanan' })}>
                     Simpanan
                 </Button>
-                <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push('/dashboard/pinjaman')}>
+                <Button variant="contained" color="primary" className={classes.button} onClick={() => props.history.push({ pathname: '/dashboard/pinjaman' })}>
                     Pinjaman
                 </Button>
                 <Kekayaan />
-            </div>
+            </div >
         )
     }
 

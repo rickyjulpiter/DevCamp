@@ -69,124 +69,124 @@ function VerifikasiData(props) {
                                 className={classes.imageTitle}
                                 fontWeight="fontWeightBold"
                             >
-                                Wahh Keren, Kamu Berhasil 
+                                Wahh Keren, Kamu Berhasil
                                 Memilih Paket <a style={{ color: image.color }}>{image.title}</a>
                             </Typography>
                         </div>
                     </div>
                     <Typography style={{ paddingBottom: '1rem' }}>
                         Nah tinggal satu tahap lagi nih, untuk bisa menjadi
-                        anggota tokoKoperasi
+                        anggota TokoKoperasi
                     </Typography>
                     <Paper
-                            className={classes.image}
+                        className={classes.image}
+                        style={{
+                            width: image.width,
+                            backgroundColor: 'lightblue'
+                        }}
+                        onClick={() => props.history.push(`/paket/${image.slug}`)}
+                    >
+                        <span
+                            className={classes.imageSrc}
                             style={{
-                                width: image.width,
-                                backgroundColor: 'lightblue'
+                                backgroundImage: `url(${image.url})`,
                             }}
-                            onClick={() => props.history.push(`/paket/${image.slug}`)}
+                        />
+                        <span className={classes.imageBackdrop} />
+                        <span className={classes.imageButton}
+                            style={{ padding: '0.4rem' }}
                         >
-                            <span
-                                className={classes.imageSrc}
-                                style={{
-                                    backgroundImage: `url(${image.url})`,
-                                }}
-                            />
-                            <span className={classes.imageBackdrop} />
-                            <span className={classes.imageButton}
-                                style={{padding:'0.4rem'}}
-                            >
-                                <Typography
-                                    component="span"
-                                    variant="subtitle1"
-                                >
-                                    Kamu harus upload foto KTP dan diri kamu agar kami bisa verifikasi data kamu
-                                </Typography>
-                            </span>
-                        </Paper>
-                        <Paper
-                            className={classes.image}
-                            style={{
-                                marginTop: '1rem',
-                                width: image.width,
-                                padding:'0.4rem',
-                            }}
-                        >
-                            <span className={classes.imageButton}>
-                                <Typography
-                                    component="span"
-                                    variant="subtitle1"
-                                    className={classes.imageTitle}
-                                    style = {{paddingLeft:10}}
-                                >
-                                    Foto KTP
-                                </Typography>
-                            </span>
-                            <span className={classes.imageButton}
-                                style={{textAlign: 'center'}}>
-                                <Typography
-                                    component="span"
-                                    variant="subtitle1"
-                                    style = {{marginRight:20}}
-                                >
-                                    satria.png
-                                </Typography>
-                                <Button
-                                    component="span"
-                                    variant="subtitle1"
-                                    variant="contained"
-                                >
-                                    Upload KTP
-                                </Button>
-                            </span>
-                        </Paper>
-                        <Paper
-                            key={image.title}
-                            className={classes.image}
-                            style={{
-                                marginTop: '1rem',
-                                width: image.width,
-                                padding:'0.4rem',
-                            }}
-                        >
-                            <span className={classes.imageButton}>
-                                <Typography
-                                    component="span"
-                                    variant="subtitle1"
-                                    className={classes.imageTitle}
-                                    style = {{paddingLeft:10}}
-                                >
-                                    Foto Dirimu dengan KTP
-                                </Typography>
-                            </span>
-                            <span className={classes.imageButton}
-                                style={{ textAlign: 'center' }}>
                             <Typography
-                                    component="span"
-                                    variant="subtitle1"
-                                    style = {{marginRight:20}}
-                                >
-                                    satria.png
+                                component="span"
+                                variant="subtitle1"
+                            >
+                                Kamu harus upload foto KTP dan diri kamu agar kami bisa verifikasi data kamu
                                 </Typography>
-                                <Button
-                                    component="span"
-                                    variant="subtitle1"
-                                    variant="contained"
-                                >
-                                    Upload KTP
+                        </span>
+                    </Paper>
+                    <Paper
+                        className={classes.image}
+                        style={{
+                            marginTop: '1rem',
+                            width: image.width,
+                            padding: '0.4rem',
+                        }}
+                    >
+                        <span className={classes.imageButton}>
+                            <Typography
+                                component="span"
+                                variant="subtitle1"
+                                className={classes.imageTitle}
+                                style={{ paddingLeft: 10 }}
+                            >
+                                Foto KTP
+                                </Typography>
+                        </span>
+                        <span className={classes.imageButton}
+                            style={{ textAlign: 'center' }}>
+                            <Typography
+                                component="span"
+                                variant="subtitle1"
+                                style={{ marginRight: 20 }}
+                            >
+                                satria.png
+                                </Typography>
+                            <Button
+                                component="span"
+                                variant="subtitle1"
+                                variant="contained"
+                            >
+                                Upload KTP
                                 </Button>
-                            </span>
-                        </Paper>
-                        <Button	
-                            type="submit"	
-                            fullWidth	
-                            variant="contained"	
-                            color="primary"	
-                            className={classes.submit}	
-                            onClick={() => props.history.push('/dashboard')}	
-                        >	
-                        Simpan                   
-                        </Button>
+                        </span>
+                    </Paper>
+                    <Paper
+                        key={image.title}
+                        className={classes.image}
+                        style={{
+                            marginTop: '1rem',
+                            width: image.width,
+                            padding: '0.4rem',
+                        }}
+                    >
+                        <span className={classes.imageButton}>
+                            <Typography
+                                component="span"
+                                variant="subtitle1"
+                                className={classes.imageTitle}
+                                style={{ paddingLeft: 10 }}
+                            >
+                                Foto Dirimu dengan KTP
+                                </Typography>
+                        </span>
+                        <span className={classes.imageButton}
+                            style={{ textAlign: 'center' }}>
+                            <Typography
+                                component="span"
+                                variant="subtitle1"
+                                style={{ marginRight: 20 }}
+                            >
+                                satria.png
+                                </Typography>
+                            <Button
+                                component="span"
+                                variant="subtitle1"
+                                variant="contained"
+                            >
+                                Upload KTP
+                                </Button>
+                        </span>
+                    </Paper>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                        onClick={() => props.history.push({ pathname: '/dashboard', state: { status: "verifikasi" } })}
+                    >
+                        Simpan
+                    </Button>
                 </Container>
             </header>
         </div >

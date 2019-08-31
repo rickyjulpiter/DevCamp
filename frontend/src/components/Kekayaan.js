@@ -122,7 +122,7 @@ function Kekayaan(props) {
     const data = { headers: { "x-auth-token": `${cookies.token}` } };
     useEffect(() => {
         const fetch = async () => {
-            axios.get("http://172.32.1.247:4000/api/v1/report/harta", data)
+            axios.get("http://10.80.214.129:4000/api/v1/report/harta", data)
                 .then((res) => {
                     const data = res.data.data;
                     setSimpanan([

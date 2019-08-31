@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(1),
     },
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(2, 0, 2),
     },
     root: {
         display: 'flex',
@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     },
     image: {
         position: 'relative',
-        height: 200,
+        height: 175,
         [theme.breakpoints.down('xs')]: {
             width: '100% !important', // Overrides inline-style
         },
@@ -139,10 +139,7 @@ function Paket(props) {
                     <div className={classes.paper} style={{ paddingBottom: '0.5rem' }}>
                         <div className={classes.titles}>
                             <Typography component="h1" variant="h5" style={{ color: 'green', fontWeight: 800 }}>
-                                Selamat Datang!
-                            </Typography>
-                            <Typography>
-                                Satria Sipayung
+                                Selamat Satria Sipayung
                             </Typography>
                         </div>
                         <img width="15%" src={Mascot} alt="Mascot" />

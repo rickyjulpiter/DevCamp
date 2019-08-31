@@ -122,7 +122,7 @@ function RiwayatCicilan(props) {
     const headers = { headers: { "x-auth-token": `${cookies.token}` } };
     useEffect(() => {
         const fetch = async () => {
-            axios.post("http://172.32.1.247:4000/api/v1/cicilan/detail", {}, headers)
+            axios.post("http://10.80.214.129:4000/api/v1/cicilan/detail", {}, headers)
                 .then((res) => {
                     const data = res.data.data;
                     setRiwayatCicilan(data);
@@ -135,7 +135,7 @@ function RiwayatCicilan(props) {
     }, [])
 
     return (
-        <Card className={classes.card} style={{ marginTop: '1rem'}}>
+        <Card className={classes.card} style={{ marginTop: '1rem' }}>
             <CardContent>
                 <Typography variant="h5" component="h2">
                     Riwayat Pembayaran Cicilan
